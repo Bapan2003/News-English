@@ -38,15 +38,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(context,webView.class);
-                intent.putExtra("url",mClassarrayList.get(position).getUrl());
+                intent.putExtra("url",mClassarrayList.get(holder.getAdapterPosition()).getUrl());
                 context.startActivity(intent);
             }
         });
-        holder.mtime.setText("Published At: "+mClassarrayList.get(position).getPublishAt());
-        holder.mauthor.setText(mClassarrayList.get(position).getAuthor());
-        holder.mheading.setText(mClassarrayList.get(position).getTile());
-        holder.mcontent.setText(mClassarrayList.get(position).getDescription());
-        Glide.with(context).load(mClassarrayList.get(position).getUrltoImage()).into(holder.imageView);
+        holder.mtime.setText("Published At: "+mClassarrayList.get(holder.getAdapterPosition()).getPublishAt());
+        holder.mauthor.setText(mClassarrayList.get(holder.getAdapterPosition()).getAuthor());
+        holder.mheading.setText(mClassarrayList.get(holder.getAdapterPosition()).getTile());
+        holder.mcontent.setText(mClassarrayList.get(holder.getAdapterPosition()).getDescription());
+        Glide.with(context).load(mClassarrayList.get(holder.getAdapterPosition()).getUrltoImage()).into(holder.imageView);
 
     }
 
