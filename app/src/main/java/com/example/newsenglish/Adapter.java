@@ -38,7 +38,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.mauthor.setText(mClassarrayList.get(holder.getAdapterPosition()).getAuthor());
         holder.mheading.setText(mClassarrayList.get(holder.getAdapterPosition()).getTitle());
         holder.mcontent.setText(mClassarrayList.get(holder.getAdapterPosition()).getDescription());
-        Glide.with(context).load(mClassarrayList.get(holder.getAdapterPosition()).getUrltoImage()).into(holder.imageView);
+        Glide.with(context).load(mClassarrayList.get(holder.getAdapterPosition()).getUrlToImage()).into(holder.imageView);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

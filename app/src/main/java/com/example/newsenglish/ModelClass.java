@@ -2,15 +2,15 @@ package com.example.newsenglish;
 
 public class ModelClass {
 
-    private  String author,title,description,url,urltoImage,publishedAt;
+    private  String author,title,description,url,urlToImage,publishedAt;
 
 
-    public ModelClass(String author, String title, String description, String url, String urltoImage, String publishedAt) {
+    public ModelClass(String author, String title, String description, String url, String urlToImage, String publishedAt) {
         this.author = author;
         this.title = title;
         this.description = description;
         this.url = url;
-        this.urltoImage = urltoImage;
+        this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
     }
 
@@ -46,12 +46,12 @@ public class ModelClass {
         this.url = url;
     }
 
-    public String getUrltoImage() {
-        return urltoImage;
+    public String getUrlToImage() {
+        return urlToImage;
     }
 
-    public void setUrltoImage(String urltoImage) {
-        this.urltoImage = urltoImage;
+    public void setUrlToImage(String urlToImage) {
+        this.urlToImage = urlToImage;
     }
 
     public String getPublishAt() {

@@ -1,11 +1,12 @@
 package com.example.newsenglish;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
-
-import android.os.Bundle;
-import android.view.View;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -57,6 +58,20 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(new TabLayoutOnPageChangeListener(tabLayout));
 
+    }
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage("Are you sure want to exit ?");
+        builder.setTitle("Alert!");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+            finish();
+        });
+        builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+            dialog.cancel();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }
