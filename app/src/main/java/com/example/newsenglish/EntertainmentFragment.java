@@ -29,7 +29,7 @@ public class EntertainmentFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.entertainmentfragment,null);
-        recyclerViewofEntertainment=v.findViewById(R.id.recycleViewHome);
+        recyclerViewofEntertainment=v.findViewById(R.id.recycleViewEntertainment);
         modelClassArrayList=new ArrayList<>();
         recyclerViewofEntertainment.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter=new Adapter(getContext(),modelClassArrayList);

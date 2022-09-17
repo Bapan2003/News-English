@@ -29,7 +29,7 @@ public class ScienceFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.sciencefragment,null);
-        recyclerViewofScience=v.findViewById(R.id.recycleViewHome);
+        recyclerViewofScience=v.findViewById(R.id.recycleViewScience);
         modelClassArrayList=new ArrayList<>();
         recyclerViewofScience.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter=new Adapter(getContext(),modelClassArrayList);

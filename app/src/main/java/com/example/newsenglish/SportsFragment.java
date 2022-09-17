@@ -29,7 +29,7 @@ public class SportsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.sportsfragment,null);
-        recyclerViewofsports=v.findViewById(R.id.recycleViewHome);
+        recyclerViewofsports=v.findViewById(R.id.recycleViewSports);
         modelClassArrayList=new ArrayList<>();
         recyclerViewofsports.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter=new Adapter(getContext(),modelClassArrayList);

@@ -34,6 +34,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder,int position) {
+        holder.mtime.setText("Published At: "+mClassarrayList.get(holder.getAdapterPosition()).getPublishAt());
+        holder.mauthor.setText(mClassarrayList.get(holder.getAdapterPosition()).getAuthor());
+        holder.mheading.setText(mClassarrayList.get(holder.getAdapterPosition()).getTitle());
+        holder.mcontent.setText(mClassarrayList.get(holder.getAdapterPosition()).getDescription());
+        Glide.with(context).load(mClassarrayList.get(holder.getAdapterPosition()).getUrltoImage()).into(holder.imageView);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,11 +47,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 context.startActivity(intent);
             }
         });
-        holder.mtime.setText("Published At: "+mClassarrayList.get(holder.getAdapterPosition()).getPublishAt());
-        holder.mauthor.setText(mClassarrayList.get(holder.getAdapterPosition()).getAuthor());
-        holder.mheading.setText(mClassarrayList.get(holder.getAdapterPosition()).getTile());
-        holder.mcontent.setText(mClassarrayList.get(holder.getAdapterPosition()).getDescription());
-        Glide.with(context).load(mClassarrayList.get(holder.getAdapterPosition()).getUrltoImage()).into(holder.imageView);
+
+
+//        ModelClass m=mClassarrayList.get(position);
+//        holder.mheading.setText(m.getTile());
+//        holder.mcontent.setText(m.getDescription());
+//        Glide.with(context).load(m.getUrltoImage()).into(holder.imageView);
+//        holder.mauthor.setText(m.getAuthor());
+//        holder.mtime.setText(m.getPublishAt());
+//        holder.cardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i=new Intent(context,webView.class);
+//                i.putExtra("url",m.getUrl());
+//                context.startActivity(i);
+//            }
+//        });
 
     }
 

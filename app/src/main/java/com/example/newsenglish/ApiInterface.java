@@ -4,7 +4,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public abstract class ApiInterface {
+public interface ApiInterface {
 
       public static String base_url="https://newsapi.org/v2/";
 

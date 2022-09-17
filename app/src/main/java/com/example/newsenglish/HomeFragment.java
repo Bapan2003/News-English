@@ -18,30 +18,30 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
-    String api="3dc94c2e74ed40149be9f5fdc8744ee0";
+    String api = "3dc94c2e74ed40149be9f5fdc8744ee0";
     ArrayList<ModelClass> modelClassArrayList;
     Adapter adapter;
-    String country="in";
+    String country = "in";
     private RecyclerView recyclerViewofhome;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v= inflater.inflate(R.layout.homefragment,null);
-        recyclerViewofhome=v.findViewById(R.id.recycleViewHome);
-        modelClassArrayList=new ArrayList<>();
+        View v = inflater.inflate(R.layout.homefragment, null);
+        recyclerViewofhome = v.findViewById(R.id.recycleViewHome);
+        modelClassArrayList = new ArrayList<>();
         recyclerViewofhome.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter=new Adapter(getContext(),modelClassArrayList);
+        adapter = new Adapter(getContext(), modelClassArrayList);
         recyclerViewofhome.setAdapter(adapter);
         findNews();
         return v;
     }
 
     private void findNews() {
-        ApiUtilize.getApiInterface().getNews(country,100,api).enqueue(new Callback<mainNews>() {
+        ApiUtilize.getApiInterface().getNews(country, 100, api).enqueue(new Callback<mainNews>() {
             @Override
             public void onResponse(Call<mainNews> call, Response<mainNews> response) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     modelClassArrayList.addAll(response.body().getArticles());
                     adapter.notifyDataSetChanged();
                 }
@@ -54,3 +54,4 @@ public class HomeFragment extends Fragment {
         });
     }
 }
+
