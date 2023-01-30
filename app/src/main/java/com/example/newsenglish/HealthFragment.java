@@ -18,7 +18,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HealthFragment extends Fragment {
-    String api="3dc94c2e74ed40149be9f5fdc8744ee0";
+    String api="66c43ddf52dd4ec585107029088dcac6";
     ArrayList<ModelClass> modelClassArrayList;
     Adapter adapter;
     String country="in";
@@ -36,6 +36,7 @@ public class HealthFragment extends Fragment {
         adapter=new Adapter(getContext(),modelClassArrayList);
         recyclerViewofhealth.setAdapter(adapter);
         findNews();
+
         return v;
     }
 

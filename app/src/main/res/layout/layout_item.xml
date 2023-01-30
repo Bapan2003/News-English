@@ -45,7 +45,7 @@
                     android:textColor="@color/black"
                     android:layout_weight="1"
                     android:ellipsize="end"
-                    android:maxLines="6"
+                    android:maxLines="5"
                     android:padding="5dp"
                     android:id="@+id/content"
                     android:textSize="18sp"

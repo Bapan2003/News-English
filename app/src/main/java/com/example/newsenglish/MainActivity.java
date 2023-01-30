@@ -1,8 +1,9 @@
 package com.example.newsenglish;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TabItem mhome,mhealth,msports,mscience,mtech,menter;
     PagerAdapter pagerAdapter;
     Toolbar toolbar;
-    String api="3dc94c2e74ed40149be9f5fdc8744ee0";
+    String api="66c43ddf52dd4ec585107029088dcac6";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,19 +60,25 @@ public class MainActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new TabLayoutOnPageChangeListener(tabLayout));
 
     }
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setMessage("Are you sure want to exit ?");
-        builder.setTitle("Alert!");
-        builder.setCancelable(false);
-        builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
-            finish();
-        });
-        builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
-            dialog.cancel();
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2600);
     }
 
 }

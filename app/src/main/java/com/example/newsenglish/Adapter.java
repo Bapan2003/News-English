@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -23,6 +24,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     Context context;
+    DbHelper dbHelper;
     ArrayList<ModelClass> mClassarrayList;
 
     @NonNull
@@ -47,6 +49,23 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 context.startActivity(intent);
             }
         });
+        holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                dbHelper=new DbHelper(view.getContext());
+                String url,img,publish,author,title,description;
+                url=mClassarrayList.get(holder.getAdapterPosition()).getUrl();
+                img=mClassarrayList.get(holder.getAdapterPosition()).getUrlToImage();
+                publish=mClassarrayList.get(holder.getAdapterPosition()).getPublishAt();
+                author=mClassarrayList.get(holder.getAdapterPosition()).getAuthor();
+                title=mClassarrayList.get(holder.getAdapterPosition()).getTitle();
+                description=mClassarrayList.get(holder.getAdapterPosition()).getDescription();
+                dbHelper.addNewCourse(url,img,publish,author,title,description);
+                Toast.makeText(context, "Saved"+holder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+
 
 
 //        ModelClass m=mClassarrayList.get(position);
@@ -85,6 +104,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             mtime=itemView.findViewById(R.id.time);
             cardView=itemView.findViewById(R.id.cardView);
             imageView=itemView.findViewById(R.id.imageView);
+
         }
+
     }
 }
