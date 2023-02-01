@@ -1,14 +1,18 @@
 package com.example.newsenglish;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayout.TabLayoutOnPageChangeListener;
@@ -17,8 +21,10 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     TabItem mhome,mhealth,msports,mscience,mtech,menter;
     PagerAdapter pagerAdapter;
+    FloatingActionButton favourite;
     Toolbar toolbar;
     String api="66c43ddf52dd4ec585107029088dcac6";
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +37,18 @@ public class MainActivity extends AppCompatActivity {
         mscience=findViewById(R.id.science);
         mtech=findViewById(R.id.tech);
         menter=findViewById(R.id.entertainment);
+        favourite=findViewById(R.id.favourite);
         ViewPager viewPager=findViewById(R.id.fragmentContainer);
         tabLayout=findViewById(R.id.include);
         pagerAdapter =new PagerAdapter(getSupportFragmentManager(),6);
        viewPager.setAdapter(pagerAdapter);
-
+       favourite.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent i=new Intent(MainActivity.this,SaveDetailsActivity.class);
+               startActivity(i);
+           }
+       });
        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
            @Override
            public void onTabSelected(TabLayout.Tab tab) {

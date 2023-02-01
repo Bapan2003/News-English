@@ -20,6 +20,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
     String api = "66c43ddf52dd4ec585107029088dcac6";
     ArrayList<ModelClass> modelClassArrayList;
+    //ArrayList a=new ArrayList();
     Adapter adapter;
     String country = "in";
     private RecyclerView recyclerViewofhome;
