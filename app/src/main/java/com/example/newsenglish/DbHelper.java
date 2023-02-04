@@ -29,7 +29,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
-                + url + " TEXT PRIMARY KEY, "
+                + url + " TEXT, "
                 + img + " TEXT,"
                 + publish + " TEXT,"
                 + author + " TEXT,"
@@ -37,7 +37,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 + description + " TEXT)";
         db.execSQL(query);
     }
-    public void addNewCourse(String url, String img, String publish, String author,String title,String description) {
+    public void addNewCourse(String urls, String imgs, String publishs, String authors,String titles,String descriptions) {
 
         // on below line we are creating a variable for
         // our sqlite database and calling writable method
@@ -50,12 +50,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
         // on below line we are passing all values
         // along with its key and value pair.
-        values.put(url,url);
-        values.put(img,img);
-        values.put(publish,publish);
-        values.put(author,author);
-        values.put(title,title);
-        values.put(description,description);
+        values.put(url,urls);
+        values.put(img,imgs);
+        values.put(publish,publishs);
+        values.put(author,authors);
+        values.put(title,titles);
+        values.put(description,descriptions);
 
         // after adding all values we are passing
         // content values to our table.

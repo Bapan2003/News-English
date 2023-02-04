@@ -23,7 +23,11 @@ public class SaveDetailsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(SaveDetailsActivity.this));
         list=new ArrayList<>();
         dbHelper=new DbHelper(SaveDetailsActivity.this);
-        list=dbHelper.readCourses();
+        dbHelper.addNewCourse(" url","img","publish","author","title","hi,this is a demo");
+        dbHelper.addNewCourse(" url1","img","publish","author","title","hi,this is a demo");
+        dbHelper.addNewCourse(" url2","img","publish","author","title","hi,this is a demo");
+        dbHelper.addNewCourse(" url3","img","publish","author","title","hi,this is a demo");
+//        list=dbHelper.readCourses();
 //        list.add(new ModelClass("g","iug","hg","","",""));
         sAdapter=new saveAdapter(this,list);
         recyclerView.setAdapter(sAdapter);

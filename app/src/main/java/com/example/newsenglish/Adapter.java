@@ -52,15 +52,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                dbHelper=new DbHelper(view.getContext());
+                dbHelper=new DbHelper(context);
                 String url,img,publish,author,title,description;
+                dbHelper.addNewCourse(" url","img","publish","author","title","hi,this is a demo");
+                dbHelper.addNewCourse(" url1","img","publish","author","title","hi,this is a demo");
+                dbHelper.addNewCourse(" url2","img","publish","author","title","hi,this is a demo");
                 url=mClassarrayList.get(holder.getAdapterPosition()).getUrl();
                 img=mClassarrayList.get(holder.getAdapterPosition()).getUrlToImage();
                 publish=mClassarrayList.get(holder.getAdapterPosition()).getPublishAt();
                 author=mClassarrayList.get(holder.getAdapterPosition()).getAuthor();
                 title=mClassarrayList.get(holder.getAdapterPosition()).getTitle();
                 description=mClassarrayList.get(holder.getAdapterPosition()).getDescription();
-                dbHelper.addNewCourse(url,img,publish,author,title,description);
+//                dbHelper.addNewCourse(url,img,publish,author,title,description);
                 Toast.makeText(context, "Saved"+holder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
                 return true;
             }
